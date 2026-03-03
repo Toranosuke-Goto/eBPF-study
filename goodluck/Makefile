@@ -3,9 +3,9 @@ TARGETS = goodluck goodluck_fix
 all: $(TARGETS)
 .PHONY: all
 
-$(TARGETS): %: %.o 
+$(TARGETS): %: %.bpf.o 
 
-%.o: %.c
+%.bpf.o: %.c
 	clang \
 	    -target bpf \
 		-I/usr/include/$(shell uname -m)-linux-gnu \
@@ -13,6 +13,6 @@ $(TARGETS): %: %.o
 	    -O2 -o $@ -c $<
 
 clean: 
-	- rm *.o
+	- rm *.bpf.o
 	- rm -f /sys/fs/bpf/goodluck 
 	- rm -f /sys/fs/bpf/goodluck_fix
