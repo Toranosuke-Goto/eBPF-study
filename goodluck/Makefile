@@ -1,4 +1,5 @@
 TARGETS = goodluck goodluck_fix
+BPF_OBJS := $(addsuffix .bpf.o,$(TARGETS))
 
 all: $(TARGETS)
 .PHONY: all
