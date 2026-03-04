@@ -3,7 +3,7 @@
 
 int counter = 0;
 
-SEC("xdp)
+SEC("xdp")
 int goodluck(struct xdp_md *ctx) {
 	bpf_printk("Good luck %d", counter);
 	counter++;
