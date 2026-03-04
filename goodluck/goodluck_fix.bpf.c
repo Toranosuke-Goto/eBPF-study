@@ -15,7 +15,7 @@ int good(void *ctx) {
 	data.uid = (u32)bpf_get_current_uid_tgid();
 
 	bpf_get_current_comm(&data.command, sizeof(data.command));
-	__builtin_memcpy(&data.message, msg, sizeof(data.message));
+	__builtin_memcpy(&data.message, message, sizeof(data.message));
 
 	study.perf_submit(ctx,&data, sizeof(data));
 
