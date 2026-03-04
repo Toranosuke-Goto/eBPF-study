@@ -2,16 +2,13 @@ TARGETS = goodluck goodluck_fix
 BPF_OBJS := $(addsuffix .bpf.o,$(TARGETS))
 
 all: $(TARGETS)
-.PHONY: all
-
-$(TARGETS): %: %.bpf.o 
+.PHONY: all clean
 
 %.bpf.o: %.bpf.c
-	clang \
-	    -target bpf \
-		-I/usr/include/$(shell uname -m)-linux-gnu \
-		-g \
-	    -O2 -o $@ -c $<
+	clang -target bpf \
+	  -I/usr/include/$(shell uname -m)-linux-gnu \
+	  -I/usr/include \
+	  -g -O2 -c $< -o $@
 
 clean: 
 	- rm *.bpf.o
