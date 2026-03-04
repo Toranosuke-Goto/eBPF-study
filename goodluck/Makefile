@@ -5,7 +5,7 @@ all: $(TARGETS)
 
 $(TARGETS): %: %.bpf.o 
 
-%.bpf.o: %.c
+%.bpf.o: %.bpf.c
 	clang \
 	    -target bpf \
 		-I/usr/include/$(shell uname -m)-linux-gnu \
