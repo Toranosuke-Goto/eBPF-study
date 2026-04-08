@@ -11,6 +11,6 @@ all: $(TARGETS)
 	  -g -O2 -c $< -o $@
 
 clean: 
-	- rm *.bpf.o
+	- rm .bpf.o
 	- rm -f /sys/fs/bpf/goodluck 
 	- rm -f /sys/fs/bpf/goodluck_fix
