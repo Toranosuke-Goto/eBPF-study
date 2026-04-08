@@ -1,7 +1,7 @@
 TARGETS = goodluck goodluck_fix
 BPF_OBJS := $(addsuffix .bpf.o,$(TARGETS))
 
-all: $(TARGETS)
+all: $(BPF_OBJS)
 .PHONY: all clean
 
 %.bpf.o: %.bpf.c
@@ -11,6 +11,6 @@ all: $(TARGETS)
 	  -g -O2 -c $< -o $@
 
 clean: 
-	- rm .bpf.o
+	- rm *.bpf.o
 	- rm -f /sys/fs/bpf/goodluck 
 	- rm -f /sys/fs/bpf/goodluck_fix
