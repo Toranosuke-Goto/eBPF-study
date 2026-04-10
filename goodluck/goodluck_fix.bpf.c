@@ -1,8 +1,8 @@
 BPF_PERF_OUTPUT(study);
 
 	struct data_t{
-	u32 pid;
-	u32 uid;
+	u18 pid;
+	u18 uid;
 	char command[16];
 	char message[15];
 };
